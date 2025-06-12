@@ -65,11 +65,6 @@ public abstract class WebDriverActions {
 
 	private void selectSuggestedLocation(String locationName) {
 		try {
-//			By suggestionLocator = By.xpath(String.format("//li[contains(text(), '%s')]", locationName));
-//			// Wait for suggestions to appear
-//			wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(suggestionLocator));
-//			WebElement suggestion = wait.until(ExpectedConditions.elementToBeClickable(suggestionLocator));
-//			suggestion.click();
 			WebElement suggestion = wait.until(ExpectedConditions
 					.elementToBeClickable(By.xpath(String.format("//li[contains(., '%s')]", locationName))));
 

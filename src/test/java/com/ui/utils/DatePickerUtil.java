@@ -12,12 +12,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DatePickerUtil {
-	
+
 	private static final By CALENDAR_MONTH = By.cssSelector(".picker__month");
 	private static final By CALENDAR_YEAR = By.cssSelector(".picker__year");
 	private static final By NEXT_BUTTON = By.cssSelector(".picker__nav--next");
 	private static final By ENABLED_DAYS = By.cssSelector("table.picker__table td:not(.picker__day--disabled)");
-	
+
 	public static void selectDate(WebDriverWait wait, By dateLocator, By dateRootLocator, int daysFromToday) {
 
 		try {
@@ -30,27 +30,35 @@ public class DatePickerUtil {
 			WebElement dateInput = wait.until(ExpectedConditions.elementToBeClickable(dateLocator));
 			dateInput.clear();
 			dateInput.click();
-			WebElement datePickerRoot = wait.until(ExpectedConditions.visibilityOfElementLocated(dateRootLocator));
-			wait.until(ExpectedConditions.visibilityOf(datePickerRoot.findElement(CALENDAR_MONTH)));
-			wait.until(ExpectedConditions.visibilityOf(datePickerRoot.findElement(CALENDAR_YEAR)));
-			String currentMonth = datePickerRoot.findElement(CALENDAR_MONTH).getText();
-			String currentYear = datePickerRoot.findElement(CALENDAR_YEAR).getText();
-			// Navigate to correct month/year
-			while (!(currentMonth.equals(targetMonth) && currentYear.equals(String.valueOf(targetYear)))) {
+			WebElement datePickerRoot = null;
+			try {
+				datePickerRoot = wait.until(ExpectedConditions.visibilityOfElementLocated(dateRootLocator));
+				wait.until(ExpectedConditions.visibilityOf(datePickerRoot.findElement(CALENDAR_MONTH)));
+				wait.until(ExpectedConditions.visibilityOf(datePickerRoot.findElement(CALENDAR_YEAR)));
 
-				WebElement nextButton = datePickerRoot.findElement(NEXT_BUTTON);
-				nextButton.click();
-				wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(CALENDAR_MONTH, currentMonth)));
-
-				currentMonth = datePickerRoot.findElement(CALENDAR_MONTH).getText();
-				currentYear = datePickerRoot.findElement(CALENDAR_YEAR).getText();
+			} catch (TimeoutException e) {
+				System.out.println("No suggestions appeared for " + dateRootLocator);
 			}
+			if (datePickerRoot != null) {
+				String currentMonth = datePickerRoot.findElement(CALENDAR_MONTH).getText();
+				String currentYear = datePickerRoot.findElement(CALENDAR_YEAR).getText();
+				// Navigate to correct month/year
+				while (!(currentMonth.equals(targetMonth) && currentYear.equals(String.valueOf(targetYear)))) {
 
-			List<WebElement> dayElements = datePickerRoot.findElements(ENABLED_DAYS);
-			for (WebElement day : dayElements) {
-				if (day.getText().equals(String.valueOf(targetDay))) {
-					day.click();
-					break;
+					WebElement nextButton = datePickerRoot.findElement(NEXT_BUTTON);
+					nextButton.click();
+					wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(CALENDAR_MONTH, currentMonth)));
+
+					currentMonth = datePickerRoot.findElement(CALENDAR_MONTH).getText();
+					currentYear = datePickerRoot.findElement(CALENDAR_YEAR).getText();
+				}
+
+				List<WebElement> dayElements = datePickerRoot.findElements(ENABLED_DAYS);
+				for (WebElement day : dayElements) {
+					if (day.getText().equals(String.valueOf(targetDay))) {
+						day.click();
+						break;
+					}
 				}
 			}
 
