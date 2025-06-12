@@ -8,7 +8,7 @@ import java.util.Properties;
 public class PropertiesUtil {
 	
 	public static String readPropertyFile(String url) {
-		File propFile = new File(System.getProperty("user.dir") + "\\Config\\config.properties");
+		File propFile = new File(System.getProperty("user.dir") + "\\config\\QA.properties");
 
 		if (!propFile.exists()) {
 			throw new IllegalArgumentException("Property file not found: " + propFile.getAbsolutePath());
