@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-12T12:58:16 BST" name="Default suite" finished-at="2025-06-12T12:58:56 BST" duration-ms="40062">
+  <suite started-at="2025-06-12T13:03:03 BST" name="Default suite" finished-at="2025-06-12T13:03:46 BST" duration-ms="43098">
     <groups>
     </groups>
-    <test started-at="2025-06-12T12:58:16 BST" name="Default test" finished-at="2025-06-12T12:58:56 BST" duration-ms="40062">
+    <test started-at="2025-06-12T13:03:03 BST" name="Default test" finished-at="2025-06-12T13:03:46 BST" duration-ms="43098">
       <class name="com.ui.test.TestRunner">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T12:58:16 BST" name="setup" finished-at="2025-06-12T12:58:17 BST" duration-ms="1281" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T13:03:03 BST" name="setup" finished-at="2025-06-12T13:03:04 BST" duration-ms="1340" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="TicketSearchTest()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T12:58:17 BST" name="TicketSearchTest" description="Validates ticket search fields" finished-at="2025-06-12T12:58:55 BST" duration-ms="38536" status="PASS">
+        <test-method signature="TicketSearchTest()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T13:03:04 BST" name="TicketSearchTest" description="Validates ticket search fields" finished-at="2025-06-12T13:03:45 BST" duration-ms="41468" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TicketSearchTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T12:58:55 BST" name="tearDown" finished-at="2025-06-12T12:58:56 BST" duration-ms="207" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.ui.test.TestRunner@36fc695d]" started-at="2025-06-12T13:03:45 BST" name="tearDown" finished-at="2025-06-12T13:03:46 BST" duration-ms="247" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
