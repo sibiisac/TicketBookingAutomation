@@ -10,7 +10,7 @@ import com.ui.utils.DatePickerUtil;
 import com.ui.utils.PropertiesUtil;
 import com.ui.utils.WebDriverActions;
 
-public class TicketHomePage extends WebDriverActions {
+public final class TicketHomePage extends WebDriverActions {
 	public static final By COOKIES_BUTTON_LOCATOR = By
 			.xpath("//a[@class='btn btn-primary btn-green-action pull-left'][normalize-space()='Accept all cookies']");
 	public static final By ARRIVAL_TEXT_FIELD_LOCATOR = By.cssSelector("input[placeholder='From ']");

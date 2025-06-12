@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.ui.utils.WebDriverActions;
 
-public class ResultPage extends WebDriverActions {
+public final class ResultPage extends WebDriverActions {
 	public static final By ONWARD_DATE_FIELD_LOCATOR = By
 			.xpath("//table[contains(@class,'table-search-results')]//tr[1]/td[1]");
 	public static final By ONWARD_DEPART_FIELD_LOCATOR = By
